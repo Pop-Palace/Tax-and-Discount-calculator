@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tax and Discount calculator</title>
+    <script>
+      function calculateTotal() {
+        var price = parseFloat(document.getElementById("price").value);
+        var tax = parseFloat(document.getElementById("tax").value);
+        var discount = parseFloat(document.getElementById("discount").value);
+        var withouttax = price - (price * discount / 100)
+        var withtax= withouttax + (withouttax * tax / 100)
+        document.getElementById("total").value = withtax.toFixed(2)
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <label for="price">Price ($.¢):</label>
+      <input type="number" id="price" name="price"><br><br>
+      <label for="tax">Discount (%):</label>
+      <input type="number" id="discount" name="discount"><br><br>
+      <label for="tax">Tax (%):</label>
+      <input type="number" id="tax" name="tax"><br><br>
+      <label for="total">Total:</label>
+      <input type="text" id="total" name="total" readonly><br><br>
+      <input type="button" value="Calculate" onclick="calculateTotal()">
+    </form>
+  </body>
+</html>
